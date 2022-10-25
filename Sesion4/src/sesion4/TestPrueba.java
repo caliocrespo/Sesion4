@@ -9,24 +9,25 @@ class TestPrueba {
 	static Cuenta cuenta1;
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception{
-		cuenta1=new Cuenta("12345","Juanillo",50.0);
-
+		
 	}
 	
 	@BeforeEach
 	void setUp() {
+		cuenta1=new Cuenta("12345","Juanillo",50.0);
+
 	}
 
 	@Test
 	public void testIngreso() {
 		cuenta1.ingreso(100.0);
-		assertEquals(50.0, cuenta1.getSaldo());
+		assertEquals(150.0, cuenta1.getSaldo());
 	}
 	
 	@Test
 	public void testReintegro() {
-		cuenta1.reintegro(100.0);
-		assertEquals(50.0, cuenta1.getSaldo());
+		cuenta1.reintegro(30.0);
+		assertEquals(20.0, cuenta1.getSaldo());
 	}
 	
 	

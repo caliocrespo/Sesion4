@@ -1,4 +1,5 @@
 package sesion4;
+import java.util.ArrayList;
 import java.util.List;
 import sesion4.Movimiento.signo;
 public class Cuenta {
@@ -7,6 +8,7 @@ public class Cuenta {
 		this.numero = numero;
 		this.titular = titular;
 		this.saldo = saldo;
+		mMovimientos=new ArrayList<Movimiento>();
 	}
 	
 	List<Movimiento> mMovimientos;
@@ -36,14 +38,20 @@ public class Cuenta {
 	
 	
 	public void ingreso(Double cantidad) {
+		
+		Movimiento aux=new Movimiento(cantidad,"Ingreso de dinerito",signo.D);
+		mMovimientos.add(aux);
 		this.saldo+=cantidad;
 		
-		Movimiento aux=new Movimiento(cantidad,"Ingreso de dinerito",signo.H);
 		
 	}
 	
 	public void reintegro(Double cantidad) {
-		if(this.saldo==-500 && this.saldo-cantidad<-500)
-		this.saldo-=cantidad;
+		if(this.saldo>=-500 && (this.saldo-cantidad)>-500) {
+			Movimiento aux=new Movimiento(cantidad,"Retiro de dinero "+cantidad,signo.H);
+			mMovimientos.add(aux);
+			this.saldo-=cantidad;
+		}
+		
 	}
 }

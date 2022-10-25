@@ -4,7 +4,7 @@ public class Movimiento {
 	public Movimiento(Double importe, String detalle, signo tipo) {
 		this.importe = importe;
 		this.detalle = detalle;
-		this.sig=tipo;
+		this.setSig(tipo);
 	}
 	enum signo{D,H};
 	private Double importe;
@@ -22,6 +22,12 @@ public class Movimiento {
 	}
 	public void setDetalle(String detalle) {
 		this.detalle = detalle;
+	}
+	public signo getSig() {
+		return sig;
+	}
+	public void setSig(signo sig) {
+		this.sig = sig;
 	}
 	
 }
