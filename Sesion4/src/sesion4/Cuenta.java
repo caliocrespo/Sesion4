@@ -47,7 +47,7 @@ public class Cuenta {
 	}
 	
 	public void reintegro(Double cantidad) {
-		if(this.saldo>=-500 && (this.saldo-cantidad)>-500) {
+		if(this.saldo>=-500 && (this.saldo-cantidad)>=-500) {
 			Movimiento aux=new Movimiento(cantidad,"Retiro de dinero "+cantidad,signo.H);
 			mMovimientos.add(aux);
 			this.saldo-=cantidad;
